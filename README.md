@@ -4,8 +4,8 @@ Webapp full-stack que permite registrarse, reportar mascotas perdidas con geoloc
 
 ## Links de entrega
 
-- **Webapp en producción:** <!-- COMPLETAR CON LA URL DE RENDER/RAILWAY --> `https://tu-app.onrender.com`
-- **Documentación API (Postman):** <!-- COMPLETAR CON LA URL DE TU COLECCIÓN DE POSTMAN --> `https://documenter.getpostman.com/view/tu-coleccion`
+- **Webapp en producción:** [https://petfinder-atlz.onrender.com/](https://petfinder-atlz.onrender.com/)
+- **Documentación API (Postman):**
 
 ---
 
@@ -56,28 +56,31 @@ petfinder/
 ## Endpoints de la API
 
 ### Autenticación (`/auth`)
-| Método | Endpoint | Auth | Descripción |
-| :--- | :--- | :---: | :--- |
-| `POST` | `/auth` | No | Registra un nuevo usuario (`name`, `email`, `password`). |
-| `POST` | `/auth/token` | No | Inicia sesión y devuelve un token JWT (`email`, `password`). |
+
+| Método | Endpoint      | Auth | Descripción                                                  |
+| :----- | :------------ | :--: | :----------------------------------------------------------- |
+| `POST` | `/auth`       |  No  | Registra un nuevo usuario (`name`, `email`, `password`).     |
+| `POST` | `/auth/token` |  No  | Inicia sesión y devuelve un token JWT (`email`, `password`). |
 
 ### Usuario (`/user`)
-| Método | Endpoint | Auth | Descripción |
-| :--- | :--- | :---: | :--- |
-| `GET` | `/user/me` | Bearer | Obtiene los datos del usuario autenticado. |
-| `PUT` | `/user/me` | Bearer | Actualiza nombre (`name` o `fullname`) y/o contraseña (`password`). |
-| `GET` | `/user/me/pets` | Bearer | Lista las mascotas reportadas por el usuario autenticado. |
+
+| Método | Endpoint        |  Auth  | Descripción                                                         |
+| :----- | :-------------- | :----: | :------------------------------------------------------------------ |
+| `GET`  | `/user/me`      | Bearer | Obtiene los datos del usuario autenticado.                          |
+| `PUT`  | `/user/me`      | Bearer | Actualiza nombre (`name` o `fullname`) y/o contraseña (`password`). |
+| `GET`  | `/user/me/pets` | Bearer | Lista las mascotas reportadas por el usuario autenticado.           |
 
 ### Mascotas y reportes (`/pets`)
-| Método | Endpoint | Auth | Descripción |
-| :--- | :--- | :---: | :--- |
-| `GET` | `/pets` | No | Lista todas las mascotas registradas. |
-| `GET` | `/pets/cerca?lat=&lng=&radius=` | No | Busca mascotas perdidas cercanas usando Algolia (`radius` por defecto `5000` m). |
-| `GET` | `/pets/:id` | No | Obtiene el detalle de una mascota por ID. |
-| `POST` | `/pets` | Bearer | Crea un reporte de mascota perdida (`name`, `location`, `lat`, `lng`, `pictureData`). |
-| `PUT` | `/pets/:id` | Bearer | Actualiza datos o estado (`"lost"` / `"found"`) de una mascota propia. |
-| `DELETE` | `/pets/:id` | Bearer | Elimina una mascota propia de PostgreSQL y Algolia. |
-| `POST` | `/pets/:id/report` | No | Reporta un avistamiento (`reporterName`, `phone`, `location`, `lat`, `lng`, `pictureData?`) y notifica por email al dueño. |
+
+| Método   | Endpoint                        |  Auth  | Descripción                                                                                                                |
+| :------- | :------------------------------ | :----: | :------------------------------------------------------------------------------------------------------------------------- |
+| `GET`    | `/pets`                         |   No   | Lista todas las mascotas registradas.                                                                                      |
+| `GET`    | `/pets/cerca?lat=&lng=&radius=` |   No   | Busca mascotas perdidas cercanas usando Algolia (`radius` por defecto `5000` m).                                           |
+| `GET`    | `/pets/:id`                     |   No   | Obtiene el detalle de una mascota por ID.                                                                                  |
+| `POST`   | `/pets`                         | Bearer | Crea un reporte de mascota perdida (`name`, `location`, `lat`, `lng`, `pictureData`).                                      |
+| `PUT`    | `/pets/:id`                     | Bearer | Actualiza datos o estado (`"lost"` / `"found"`) de una mascota propia.                                                     |
+| `DELETE` | `/pets/:id`                     | Bearer | Elimina una mascota propia de PostgreSQL y Algolia.                                                                        |
+| `POST`   | `/pets/:id/report`              |   No   | Reporta un avistamiento (`reporterName`, `phone`, `location`, `lat`, `lng`, `pictureData?`) y notifica por email al dueño. |
 
 ---
 
