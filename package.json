@@ -1,0 +1,44 @@
+{
+  "name": "petfinder",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev:be": "tsx ./be-src/index.ts",
+    "build:be": "tsc",
+    "dev:fe": "cross-env PORT=1234 parcel fe-src/index.html",
+    "build:fe": "parcel build fe-src/index.html --dist-dir fe-dist --public-url /",
+    "build": "npm run build:be && npm run build:fe",
+    "start": "node ./be-dist/index.js",
+    "dev": "npm run dev:be",
+    "sync": "tsx ./be-src/sync.ts"
+  },
+  "dependencies": {
+    "@vaadin/router": "^2.0.1",
+    "algoliasearch": "^5.59.0",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.11.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.1",
+    "dropzone": "^6.3.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "leaflet": "^1.9.4",
+    "pg": "^8.23.0",
+    "pg-hstore": "^2.3.4",
+    "resend": "^6.28.1",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/dropzone": "^5.7.9",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.4.1",
+    "cross-env": "^10.1.0",
+    "parcel": "^2.16.4",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}

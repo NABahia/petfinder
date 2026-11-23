@@ -1,0 +1,10 @@
+be-dist
+fe-dist
+dist
+.parcel-cache
+node_modules
+.env
+.ENV
+.env.*
+!.env.example
+original.json
